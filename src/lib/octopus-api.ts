@@ -11,9 +11,6 @@ export async function getTariffStandingCharges(from: Date|undefined, to: Date|un
   
   let response;
   if (from && to) {
-    console.log(from);
-    console.log(to);
-    console.log(`${BASE_URL}/products/${productCode}/electricity-tariffs/${tariffCode}/standing-charges/?period_from=${from.toISOString()}&period_to=${to.toISOString()}`);
     response = await fetch(`${BASE_URL}/products/${productCode}/electricity-tariffs/${tariffCode}/standing-charges/?period_from=${from.toISOString()}&period_to=${to.toISOString()}`, { headers });
   } else {
     response = await fetch(`${BASE_URL}/products/${productCode}/electricity-tariffs/${tariffCode}/standing-charges/`, { headers });
