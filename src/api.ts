@@ -6,7 +6,7 @@ const port = 3000;
 
 app.get('/standing-charges', async (req, res) => {
   const standingCharges = await getTariffStandingCharges();
-  res.send(JSON.stringify(standingCharges));
+  res.send(standingCharges);
 });
 
 app.listen(port, () => {
