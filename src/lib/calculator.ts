@@ -7,15 +7,12 @@ export async function calculateCost(from: Date, to: Date) {
 
   const numDays = Math.floor((to.getTime() - from.getTime()) / 1000 / 60 / 60 / 24); // number of days between from and to
 
-  let totalStandingCharges = 0;
-  standingCharges.forEach((standingCharge) => {
-    totalStandingCharges = ((standingCharge.value_inc_vat / 100) * numDays);
-    // TODO: handle changes of standing charges in the period (more than one standing charge record)
-  });
+  // TODO: handle changes of standing charges in the period (more than one standing charge record)
+  const totalStandingCharges = (standingCharges[0].value_inc_vat / 100) * numDays;
 
   let totalUnitRate = 0;
   unitRates.forEach((unitRate) => {
-    let rateConsumption = consumption.find((c) => c.interval_start === unitRate.valid_from)?.consumption; // get consumption during time of this unit rate
+    const rateConsumption = consumption.find((c) => c.interval_start === unitRate.valid_from)?.consumption; // get consumption during time of this unit rate
     totalUnitRate += ((unitRate.value_inc_vat / 100) * (rateConsumption ?? 0));
   });
 

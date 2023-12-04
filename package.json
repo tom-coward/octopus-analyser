@@ -4,7 +4,8 @@
   "description": "Analyses Octopus Energy usage & costs",
   "main": "./dist/api.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc",
+    "lint": "npx eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

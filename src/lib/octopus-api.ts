@@ -45,8 +45,8 @@ export async function getTariffUnitRates(from: Date|undefined, to: Date|undefine
 }
 
 export async function getConsumption(from: Date|undefined, to: Date|undefined) {
-  const mpan = process.env.OCTOPUS_METER_MPAN;
-  const serialNumber = process.env.OCTOPUS_METER_SERIAL_NUMBER;
+  const mpan = process.env.OCTOPUS_ELECTRICITY_METER_MPAN;
+  const serialNumber = process.env.OCTOPUS_ELECTRICITY_METER_SERIAL_NUMBER;
 
   let response;
 
